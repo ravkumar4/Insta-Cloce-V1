@@ -1,0 +1,149 @@
+.login-container {
+  background-color: #fefeff;
+  min-width: 600px;
+  max-width: 1800px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.landing-image {
+  height: 300px;
+  width: 480px;
+  margin-right: 25px;
+}
+
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 0px 4px 16px 0px #bfbfbf;
+  min-width: 250px;
+  max-width: 500px;
+  width: 360px;
+  height: 350px;
+  border: none;
+  padding: 25px;
+  margin-left: 25px;
+}
+
+.website-logo {
+  width: 45px;
+  height: 25px;
+  align-self: center;
+}
+
+.insta-share-heading {
+  color: #262626;
+  font-family: 'Roboto';
+  font-size: 14px;
+  line-height: 32px;
+  margin-top: 0;
+  align-self: center;
+}
+
+.label {
+  color: #262626;
+  font-family: 'Roboto';
+  font-size: 14px;
+  margin-top: 15px;
+  padding-left: 0;
+}
+.username-label,
+.password-label {
+  margin-bottom: 0;
+}
+
+.input {
+  width: 280px;
+  height: 40px;
+  padding: 8px;
+  background-color: #eeeeee;
+  border: none;
+  outline: none;
+  font-family: 'Roboto';
+}
+.login-button {
+  background-color: #4094ef;
+  color: #fefeff;
+  width: 280px;
+  height: 40px;
+  margin-top: 20px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 8px;
+  font-family: 'Roboto';
+}
+
+.error-message {
+  color: #ef4444;
+  font-family: 'Roboto';
+  margin-top: 1px;
+}
+
+@media (max-width: 567px) {
+  .login-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .landing-image {
+    display: none;
+  }
+}
+
+@media (min-width: 568px) and (max-width: 767px) {
+  .login-container {
+    width: 100%;
+  }
+
+  .landing-image {
+    height: 250px;
+    width: 360px;
+  }
+  .login-form-container {
+    width: 300px;
+    height: 300px;
+  }
+
+  .input {
+    width: 210px;
+  }
+  .login-button {
+    width: 210px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .landing-image {
+    height: 320px;
+    width: 400px;
+  }
+  .login-container {
+    width: 100%;
+  }
+
+  .landing-image {
+    height: 270px;
+    width: 370px;
+  }
+  .login-form-container {
+    width: 320px;
+    height: 320px;
+  }
+
+  .input {
+    width: 240px;
+  }
+  .login-button {
+    width: 240px;
+    height: 40px;
+  }
+}

@@ -1,0 +1,107 @@
+@media (min-width: 568px) {
+  .mobile-menu-icon {
+    display: none;
+  }
+}
+
+@media (max-width: 567px) {
+  .desktop-items-container {
+    display: none;
+  }
+  .routes-list {
+    display: none;
+  }
+  .search-container {
+    display: none;
+  }
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  background-color: #ffffff;
+  min-width: 500px;
+  max-width: 1800px;
+  width: 100%;
+}
+.desktop-items-container {
+  display: flex;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.routes-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.routes-list li {
+  list-style: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-family: 'Roboto';
+  margin-left: 10px;
+  font-weight: 500;
+  font-size: 18px;
+  color: #262626;
+  margin-right: 10px;
+}
+
+.insta-share-heading {
+  padding-top: 10px;
+  font-family: 'Roboto';
+  padding-left: 10px;
+  font-size: 65px;
+}
+.search-container {
+  min-width: 70px;
+  max-width: 350px;
+  width: 300px;
+  padding: 5px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+}
+.search-bar {
+  background-color: #dbdbdb;
+  outline: none;
+  width: 220px;
+  border: 1px solid #989898;
+  padding: 5px;
+  font-family: 'Roboto';
+  padding-left: 10px;
+}
+
+.search-icon {
+  color: #dbdbdb;
+}
+.search-button {
+  background-color: #989898;
+  outline: none;
+  border: none;
+  padding-left: 13px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-right: 13px;
+}
+
+.logout-button {
+  background-color: #4094ef;
+  font-family: 'Roboto';
+  color: #ffffff;
+  border: none;
+  height: 32px;
+  width: 86px;
+  left: 0px;
+  top: 0px;
+  border-radius: 4px;
+  padding: 8px, 24px, 8px, 24px;
+  margin-left: 15px;
+}

@@ -1,0 +1,13 @@
+.home-container {
+  background-color: #fafafa;
+  min-width: 600px;
+  max-width: 1800px;
+  width: 100%;
+  position: absolute;
+}
+
+@media (max-width: 567px) {
+  .home-container {
+    width: 100%;
+  }
+}
