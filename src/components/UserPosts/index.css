@@ -1,0 +1,16 @@
+.user-post-success-container {
+  background-color: #ffffff;
+  min-width: 400px;
+  max-width: 1800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
+  border: 2px solid #dbdbdb;
+  padding: 10px;
+}
+
+.user-post-container {
+  width: 70%;
+}
