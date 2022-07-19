@@ -9,8 +9,48 @@ class Header extends Component {
 
   handleSearchInput = event => this.setState({searchInput: event.target.value})
 
-  render() {
+  renderDesktopHeader = () => {
     const {searchInput} = this.state
+    return (
+      <div className="desktop-items-container">
+        <div className="search-container">
+          <input
+            type="search"
+            placeholder="Search Caption"
+            className="search-bar"
+            value={searchInput}
+            onChange={this.handleSearchInput}
+          />
+          <button type="button" className="search-button">
+            <FaSearch className="search-icon" />
+          </button>
+        </div>
+        <ul className="routes-list">
+          <li>
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/profile" className="nav-link">
+              Profile
+            </Link>
+          </li>
+        </ul>
+        <button type="button" className="logout-button" testid="searchIcon">
+          Logout
+        </button>
+      </div>
+    )
+  }
+
+  renderMobileHeader = () => (
+    <div className="mobile-menu-icon">
+      <FiMenu />
+    </div>
+  )
+
+  render() {
     return (
       <nav className="navbar-container">
         <div className="logo-container">
@@ -21,38 +61,8 @@ class Header extends Component {
           />
           <h1 className="insta-share-heading"> Insta Share</h1>
         </div>
-        <div className="desktop-items-container d-sm-none">
-          <div className="search-container">
-            <input
-              type="search"
-              placeholder="Search Caption"
-              className="search-bar"
-              value={searchInput}
-              onChange={this.handleSearchInput}
-            />
-            <button type="button" className="search-button">
-              <FaSearch className="search-icon" />
-            </button>
-          </div>
-          <ul className="routes-list">
-            <li>
-              <Link to="/" className="nav-link">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/profile" className="nav-link">
-                Profile
-              </Link>
-            </li>
-          </ul>
-          <button type="button" className="logout-button" testid="searchIcon">
-            Logout
-          </button>
-        </div>
-        <div className="mobile-menu-icon">
-          <FiMenu />
-        </div>
+        {this.renderDesktopHeader()}
+        {this.renderMobileHeader()}
       </nav>
     )
   }
