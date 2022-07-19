@@ -2,8 +2,7 @@
   background-color: #fafafa;
   min-width: 400px;
   max-width: 1800px;
-  width: 80%;
-  height: 100vh;
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,6 +21,22 @@
   align-items: center;
   justify-content: center;
 }
+
+@media (max-width: 567px) {
+  .react-slick-container {
+    width: 100%;
+  }
+  .slick-container {
+    width: 100%;
+  }
+  .slick-item {
+    width: 50px;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+}
+
 .logo-image {
   width: 65px;
   height: 65px;
@@ -66,30 +81,4 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-@media (max-width: 567px) {
-  .react-slick-container {
-    width: 50%;
-  }
-  .slick-container {
-    width: 300px;
-  }
-  .slick-item {
-    width: 50px;
-    margin: 0;
-  }
-  .logo-image {
-    width: 40px;
-    height: 40px;
-  }
-  .story-name {
-    font-size: 8px;
-  }
-}
-
-@media (min-width: 568px) and (max-width: 992px) {
-}
-
-@media (min-width: 993px) {
 }

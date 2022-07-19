@@ -46,7 +46,7 @@ class Header extends Component {
 
   renderMobileHeader = () => (
     <div className="mobile-menu-icon">
-      <FiMenu />
+      <FiMenu className="menu-icon" />
     </div>
   )
 

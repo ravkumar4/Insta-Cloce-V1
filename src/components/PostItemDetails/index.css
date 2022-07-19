@@ -7,9 +7,16 @@
   max-width: 1800px;
   width: 100%;
   margin: 10px;
+  background-color: #ffffff;
+  border: 1px solid #dbdbdb;
+}
+@media (max-width: 567px) {
+  .post-item {
+    width: 100%;
+  }
 }
 
-.user-profile-container {
+.profile-container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -30,8 +37,82 @@
   line-height: 18px;
   letter-spacing: 0em;
 }
+.nav-link {
+  text-decoration: none;
+}
 
 .user-post-image {
-  height: 614px;
+  height: 414px;
   width: 100%;
+}
+
+.react-icons {
+  padding: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+.icon-button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.like-icon,
+.comment-icon,
+.share-icon {
+  height: 20px;
+  width: 20px;
+  margin-right: 15px;
+}
+
+.user-post-likes-count {
+  margin-left: 25px;
+  margin-top: 3px;
+  font-family: 'Roboto';
+  color: #262626;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.user-post-caption {
+  font-family: 'Roboto';
+  margin-left: 25px;
+  margin-top: 5px;
+  margin-bottom: 0;
+  color: #262626;
+}
+.comment-container {
+  margin-left: 25px;
+  margin-top: 0;
+}
+.inner-comment-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.post-comment-username {
+  font-family: 'Roboto';
+  color: #262626;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.post-comment {
+  color: #262626;
+  font-family: 'Roboto';
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.post-time {
+  color: #989898;
+  margin-left: 25px;
+  margin-top: 5px;
+  font-family: 'Roboto';
 }
