@@ -3,18 +3,15 @@ import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import {BsGrid3X3} from 'react-icons/bs'
 import {BiCamera} from 'react-icons/bi'
-
 import Header from '../Header'
-
 import './index.css'
 
 const apiStatusConstants = {
-  initial: 'initial',
-  success: 'success',
-  failure: 'failure',
-  loading: 'loading',
+  initial: 'INITIAL',
+  success: 'SUCCESS',
+  failure: 'FAILURE',
+  loading: 'LOADING',
 }
-
 class UserProfile extends Component {
   state = {
     userDetails: {
@@ -39,12 +36,8 @@ class UserProfile extends Component {
 
   gettingUserProfileDetails = async () => {
     this.setState({loadingStatus: apiStatusConstants.loading})
-    const {match} = this.props
-    const {params} = match
-    const {id} = params
-    const apiUrl = `https://apis.ccbp.in/insta-share/users/${id}`
+    const apiUrl = 'https://apis.ccbp.in/insta-share/my-profile'
     const token = Cookies.get('jwt_token')
-
     const options = {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -53,21 +46,19 @@ class UserProfile extends Component {
     }
     const response = await fetch(apiUrl, options)
     const data = await response.json()
-    // console.log(data)
     if (response.ok === true) {
       const formattedData = {
-        followersCount: data.user_details.followers_count,
-        followingCount: data.user_details.following_count,
-        id: data.user_details.id,
-        posts: data.user_details.posts,
-        postsCount: data.user_details.posts_count,
-        profilePic: data.user_details.profile_pic,
-        stories: data.user_details.stories,
-        userBio: data.user_details.user_bio,
-        userId: data.user_details.user_id,
-        userName: data.user_details.user_name,
+        followersCount: data.profile.followers_count,
+        followingCount: data.profile.following_count,
+        id: data.profile.id,
+        posts: data.profile.posts,
+        postsCount: data.profile.posts_count,
+        profilePic: data.profile.profile_pic,
+        stories: data.profile.stories,
+        userBio: data.profile.user_bio,
+        userId: data.profile.user_id,
+        userName: data.profile.user_name,
       }
-      console.log(formattedData)
       this.setState({
         userDetails: formattedData,
         loadingStatus: apiStatusConstants.success,
@@ -83,7 +74,7 @@ class UserProfile extends Component {
     </div>
   )
 
-  renderingBioSection = () => {
+  renderBioSection = () => {
     const {userDetails, presentScreenSize} = this.state
     const {
       followersCount,
@@ -101,7 +92,7 @@ class UserProfile extends Component {
           <div className="user-profile-details">
             <img
               className="user-profile-pic"
-              alt="user profile"
+              alt="my profile"
               src={profilePic}
             />
             <div className="bio-section-details-container">
@@ -127,10 +118,10 @@ class UserProfile extends Component {
 
           <ul className="user-profile-story-container">
             {stories.map(eachStory => (
-              <li className="li-style" key={eachStory.id}>
+              <li key={eachStory.id} className="li-style">
                 <img
                   className="user-profile-story-pic"
-                  alt="user story"
+                  alt="my story"
                   src={eachStory.image}
                 />
               </li>
@@ -143,11 +134,7 @@ class UserProfile extends Component {
       <div className="bio-section">
         <h1 className="user-profile-name">{userName}</h1>
         <div className="user-profile-details">
-          <img
-            className="user-profile-pic"
-            alt="user profile"
-            src={profilePic}
-          />
+          <img className="user-profile-pic" alt="my profile" src={profilePic} />
           <div className="bio-section-details-container">
             <div className="posts-followers-container">
               <div className="details-container">
@@ -169,10 +156,10 @@ class UserProfile extends Component {
         <p className="bio-style">{userBio}</p>
         <ul className="user-profile-story-container">
           {stories.map(eachStory => (
-            <li className="li-style" key={eachStory.id}>
+            <li key={eachStory.id} className="li-style">
               <img
                 className="user-profile-story-pic"
-                alt="user story"
+                alt="my story"
                 src={eachStory.image}
               />
             </li>
@@ -185,15 +172,15 @@ class UserProfile extends Component {
   renderSuccessContentView = () => {
     const {userDetails} = this.state
     const {posts} = userDetails
+
     return (
       <div className="user-profile-background">
-        {this.renderingBioSection()}
+        {this.renderBioSection()}
         <div>
           <div className="posts-heading-icon-container">
             <BsGrid3X3 />
             <h1 className="posts-bottom-section-heading">Posts</h1>
           </div>
-
           {posts.length === 0 ? (
             <div className="no-posts-style">
               <BiCamera className="camera-icon" />
@@ -205,7 +192,7 @@ class UserProfile extends Component {
                 <li key={eachPost.id} className="post-image-container">
                   <img
                     className="post-image-size"
-                    alt="user post"
+                    alt="my post"
                     src={eachPost.image}
                   />
                 </li>
@@ -215,6 +202,20 @@ class UserProfile extends Component {
         </div>
       </div>
     )
+  }
+
+  renderPage = () => {
+    const {loadingStatus} = this.state
+    switch (loadingStatus) {
+      case apiStatusConstants.loading:
+        return this.renderLoadingView()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+      case apiStatusConstants.success:
+        return this.renderSuccessContentView()
+      default:
+        return null
+    }
   }
 
   renderFailureView = () => (
@@ -237,20 +238,6 @@ class UserProfile extends Component {
     </div>
   )
 
-  renderPageApiView = () => {
-    const {loadingStatus} = this.state
-    switch (loadingStatus) {
-      case apiStatusConstants.loading:
-        return this.renderLoadingView()
-      case apiStatusConstants.failure:
-        return this.renderFailureView()
-      case apiStatusConstants.success:
-        return this.renderSuccessContentView()
-      default:
-        return null
-    }
-  }
-
   checking = () => {
     this.setState({presentScreenSize: window.innerWidth})
   }
@@ -259,7 +246,7 @@ class UserProfile extends Component {
     return (
       <div>
         <Header />
-        {this.renderPageApiView()}
+        {this.renderPage()}
         {window.addEventListener('resize', this.checking)}
       </div>
     )

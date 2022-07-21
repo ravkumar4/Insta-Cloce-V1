@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
-
+import {Redirect} from 'react-router-dom'
 import './index.css'
 
 class Login extends Component {
@@ -17,7 +17,7 @@ class Login extends Component {
 
   onSubmitSuccess = token => {
     const {history} = this.props
-    Cookies.set('accessToken', token, {expires: 30})
+    Cookies.set('jwt_token', token, {expires: 1})
     history.replace('/')
   }
 
@@ -43,6 +43,10 @@ class Login extends Component {
 
   render() {
     const {username, password, errorMessage, showErrorMessage} = this.state
+    const token = Cookies.get('jwt_token')
+    if (token !== undefined) {
+      return <Redirect to="/" />
+    }
 
     return (
       <div className="login-container">
@@ -59,24 +63,24 @@ class Login extends Component {
             className="website-logo"
           />
           <h1 className="insta-share-heading"> Insta Share</h1>
-          <label htmlFor="username" className="label username-label">
+          <label htmlFor="username" className="username-label">
             USERNAME
           </label>
           <input
             type="text"
             id="username"
-            className="input username"
+            className="input-username"
             placeholder="Username"
             value={username}
             onChange={this.handleUsername}
           />
-          <label htmlFor="password" className="label password-label">
+          <label htmlFor="password" className="password-label">
             PASSWORD
           </label>
           <input
             type="password"
             id="password"
-            className="input password"
+            className="input-password"
             placeholder="Password"
             value={password}
             onChange={this.handlePassword}

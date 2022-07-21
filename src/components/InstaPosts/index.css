@@ -1,0 +1,105 @@
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #e20337;
+  border-radius: 28px;
+  padding: 2px;
+}
+
+.profile-pic-container {
+  margin-left: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.profile-name {
+  font-family: roboto;
+  color: #262626;
+  font-weight: 500;
+  margin-left: 8px;
+}
+.insta-post-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  background-color: white;
+}
+@media screen and (min-width: 576px) {
+  .insta-post-container {
+    border: 1px solid #dbdbdb;
+    padding-top: 10px;
+    margin-bottom: 45px;
+  }
+}
+.link-style-profile {
+  text-decoration: none;
+}
+.bottom-section {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 0px;
+}
+.like-comment-share {
+  background-color: transparent;
+  border: none;
+  font-size: 22px;
+  color: #475569;
+  cursor: pointer;
+  margin-right: 15px;
+  padding: 0px;
+  margin-bottom: 0px;
+}
+.likes-count {
+  color: #262626;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 8px;
+  margin-bottom: 5px;
+}
+.liked-color {
+  background-color: pink;
+}
+.post-description {
+  font-size: 16px;
+  font-weight: 400;
+  color: #262626;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.comment-user {
+  color: #262626;
+  font-size: 16px;
+  font-weight: 500;
+}
+.comment {
+  font-size: 16px;
+  font-weight: 400;
+  color: #262626;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.created-time {
+  color: #989898;
+  font-size: 12px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.post-image {
+  height: 375px;
+}
+@media screen and (min-width: 576px) {
+  .post-image {
+    height: 614px;
+  }
+}

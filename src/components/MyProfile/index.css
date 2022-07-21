@@ -10,7 +10,6 @@
 @media screen and (min-width: 576px) {
   .bio-section {
     padding: 10px 5% 10px 5%;
-    display: none;
   }
 }
 @media screen and (min-width: 768px) {
@@ -75,6 +74,7 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   flex-grow: 1;
+  padding-left: 0px;
 }
 .user-profile-story-pic {
   height: 64px;
@@ -98,6 +98,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding-bottom: 15px;
+  padding-left: 0px;
 }
 .stories-large-devices {
   display: none;
@@ -106,7 +107,6 @@
   .user-profile-post-container {
     padding: 10px 5% 10px 5%;
     justify-content: space-between;
-    margin-top: 0px;
   }
   .stories-large-devices {
     display: flex;
@@ -116,7 +116,6 @@
 @media screen and (min-width: 768px) {
   .user-profile-post-container {
     padding: 10px 10% 10px 10%;
-    margin-top: 0px;
   }
   .stories-large-devices {
     display: flex;
@@ -130,7 +129,13 @@
 }
 @media screen and (min-width: 576px) {
   .post-image-size {
-    height: 200px;
+    height: 220px;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .post-image-size {
+    height: 250px;
     width: 100%;
   }
 }
@@ -140,24 +145,30 @@
     width: 100%;
   }
 }
-@media screen and (min-width: 992px) {
-  .post-image-size {
-    height: 300px;
-    width: 100%;
-  }
+.bio-section-details-container {
+  flex-grow: 1;
 }
-
 .user-profile-name {
   font-weight: 300;
   font-family: roboto;
   font-size: 16px;
   color: #262626;
 }
+.user-profile-name-large-devices {
+  font-size: 32px;
+  margin-bottom: 15px;
+  display: none;
+}
 @media screen and (min-width: 576px) {
   .user-profile-name {
+    display: none;
+  }
+  .user-profile-name-large-devices {
     font-size: 32px;
     margin-bottom: 15px;
-    display: none;
+    display: flex;
+    font-weight: 300;
+    font-family: roboto;
   }
 }
 .posts-heading {
@@ -216,67 +227,69 @@
   line-height: 24px;
   color: #262626;
 }
+.userid-style-large-devices {
+  display: none;
+}
+.bio-style-large-devices {
+  display: none;
+}
 @media screen and (min-width: 576px) {
   .bio-style {
+    display: none;
+  }
+  .userid-style {
+    display: none;
+  }
+  .userid-style-large-devices {
+    font-weight: 500;
+    font-family: roboto;
     font-size: 16px;
+    color: #262626;
+    display: flex;
   }
-}
-.posts-heading-icon-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 15px 5px 5px 0px;
-}
-
-.posts-bottom-section-heading {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 32px;
-  margin-left: 10px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-.posts-heading-icon-container {
-  margin-left: 20px;
-}
-@media screen and (min-width: 576px) {
-  .posts-heading-icon-container {
-    margin-left: 5%;
-  }
-}
-@media screen and (min-width: 768px) {
-  .posts-heading-icon-container {
-    margin-left: 10%;
+  .bio-style-large-devices {
+    display: flex;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #262626;
   }
 }
 
-.no-posts-style {
+.myprofile-loader-container {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  min-height: 30vh;
+  justify-content: center;
+  background-color: #fafafa;
+  min-height: 100vh;
 }
+.my-profile-failure-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-.camera-icon {
-  font-size: 55px;
-  border: 2px solid #262626;
-  border-radius: 27px;
-  padding: 5px;
+  min-height: 100vh;
 }
-
-.no-posts-heading-style {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 32px;
-  line-height: 48px;
+.failure-view-image-my-profile {
+  width: 260px;
+  height: 127px;
 }
 @media screen and (min-width: 576px) {
-  .user-profile-background {
-    background-color: #fafafa;
+  .failure-view-image-my-profile {
+    width: 560px;
+    height: 274px;
   }
+}
+.li-style {
+  list-style-type: none;
+}
+
+.post-image-container {
+  list-style-type: none;
+  width: 33%;
 }

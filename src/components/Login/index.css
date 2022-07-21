@@ -44,19 +44,18 @@
   align-self: center;
 }
 
-.label {
+.username-label,
+.password-label {
+  margin-bottom: 0;
   color: #262626;
   font-family: 'Roboto';
   font-size: 14px;
   margin-top: 15px;
   padding-left: 0;
 }
-.username-label,
-.password-label {
-  margin-bottom: 0;
-}
 
-.input {
+.input-username,
+.input-password {
   width: 280px;
   height: 40px;
   padding: 8px;
@@ -113,7 +112,8 @@
     height: 300px;
   }
 
-  .input {
+  .input-username,
+  .input-password {
     width: 210px;
   }
   .login-button {
@@ -139,7 +139,8 @@
     height: 320px;
   }
 
-  .input {
+  .input-username,
+  .input-password {
     width: 240px;
   }
   .login-button {
